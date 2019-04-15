@@ -4,8 +4,8 @@ go: "1.11"
 
 env:
   global:
-    - LINUX_BINARY=release/auas-cli-${TRAVIS_TAG}-linux-amd64
-    - DARWIN_BINARY=release/auas-cli-${TRAVIS_TAG}-darwin-amd64
+    - LINUX_BINARY=release/ilias-${TRAVIS_TAG}-linux-amd64
+    - DARWIN_BINARY=release/ilias-${TRAVIS_TAG}-darwin-amd64
 
 before_script:
   - go get
