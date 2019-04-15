@@ -26,5 +26,5 @@ deploy:
     - "${LINUX_BINARY}"
     - "${DARWIN_BINARY}"
   on:
-    repo: filkra/auas-cli
+    repo: filkra/ilias
     tags: true
