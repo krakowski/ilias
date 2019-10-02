@@ -1,7 +1,8 @@
 package cmd
 
 import (
-	"github.com/filkra/ilias/cmd/submissions"
+	"github.com/krakowski/ilias/cmd/members"
+	"github.com/krakowski/ilias/cmd/submissions"
 	"github.com/spf13/cobra"
 	"os"
 )
@@ -18,6 +19,7 @@ var rootCommand = &cobra.Command{
 
 func init() {
 	rootCommand.AddCommand(submissions.RootCommand)
+	rootCommand.AddCommand(members.RootCommand)
 }
 
 func Execute() {

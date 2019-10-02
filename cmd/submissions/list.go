@@ -2,7 +2,7 @@ package submissions
 
 import (
 	"encoding/csv"
-	"github.com/filkra/ilias/api"
+	"github.com/krakowski/ilias/api"
 	"github.com/olekukonko/tablewriter"
 	"github.com/spf13/cobra"
 	"log"

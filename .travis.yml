@@ -26,5 +26,5 @@ deploy:
     - "${LINUX_BINARY}"
     - "${DARWIN_BINARY}"
   on:
-    repo: filkra/ilias
+    repo: krakowski/ilias
     tags: true
