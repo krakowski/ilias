@@ -2,6 +2,7 @@ package members
 
 import (
 	"encoding/csv"
+	"encoding/json"
 	"github.com/krakowski/ilias/api"
 	"github.com/olekukonko/tablewriter"
 	"github.com/spf13/cobra"
@@ -12,6 +13,7 @@ import (
 var (
 	shouldPrintIdsOnly bool
 	shouldPrintCsv bool
+	shouldPrintJson bool
 	includeEmpty bool
 )
 
@@ -36,10 +38,30 @@ var membersListCommand = &cobra.Command{
 			printCsv(members)
 		} else if shouldPrintIdsOnly {
 			printIds(members)
+		} else if shouldPrintJson {
+			printJson(members)
 		} else {
 			printTable(members)
 		}
 	},
+}
+
+func printJson(members []api.MemberInfo) {
+	type member struct {
+		Usernames []string `json:"usernames"`
+	}
+
+	var usernames []string
+	for _, member := range members {
+		usernames = append(usernames, member.UserId)
+	}
+
+	buffer, err := json.Marshal(member{Usernames:usernames})
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	println(string(buffer))
 }
 
 func printIds(members []api.MemberInfo) {
@@ -71,6 +93,7 @@ func printTable(members []api.MemberInfo) {
 }
 
 func init() {
+	membersListCommand.Flags().BoolVar(&shouldPrintJson, "json", false, "Prints all user ids within an json object")
 	membersListCommand.Flags().BoolVar(&shouldPrintIdsOnly, "ids", false, "Prints only user ids")
 	membersListCommand.Flags().BoolVar(&shouldPrintCsv, "csv", false, "Prints the table in csv format")
 	membersListCommand.Flags().BoolVar(&includeEmpty, "empty", false, "Includes empty submissions")
