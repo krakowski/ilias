@@ -3,6 +3,7 @@ package members
 import (
 	"encoding/csv"
 	"encoding/json"
+	"fmt"
 	"github.com/krakowski/ilias/api"
 	"github.com/olekukonko/tablewriter"
 	"github.com/spf13/cobra"
@@ -61,12 +62,12 @@ func printJson(members []api.MemberInfo) {
 		log.Fatal(err)
 	}
 
-	println(string(buffer))
+	fmt.Println(string(buffer))
 }
 
 func printIds(members []api.MemberInfo) {
 	for _, member := range members {
-		println(member.UserId)
+		fmt.Println(member.UserId)
 	}
 }
 
