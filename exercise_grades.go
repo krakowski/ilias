@@ -37,11 +37,11 @@ func (exercise *ExerciseService) UpdateGrades(params *GradesQuery, corrections [
 	for _, correction := range corrections {
 		values.Add("member[" + correction.Student + "]", "1")
 		values.Add("id[" + correction.Student + "]", "1")
-		values.Add("idlid[" + correction.Student + "]", params.Assignment + "_" + correction.Student)
+		values.Add("idlid[" + correction.Student + "]", "")
 		values.Add("status[" + correction.Student + "]", "passed")
 		values.Add("mark[" + correction.Student + "]", strconv.Itoa(correction.Points) + " Punkte")
+		values.Add("notice[" + correction.Student + "]", "")
 	}
-
 
 	req, err := exercise.client.NewRequest(http.MethodPost, path, values)
 	if err != nil {

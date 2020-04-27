@@ -1,11 +1,15 @@
 package ilias
 
 import (
+	"bytes"
 	"errors"
 	"github.com/gorilla/schema"
+	"io"
 	"log"
+	"mime/multipart"
 	"net/http"
 	"net/http/cookiejar"
+	"net/textproto"
 	"net/url"
 	"strings"
 )
@@ -18,6 +22,7 @@ var (
 	ErrToken = errors.New("token could not be found")
 	ErrFullName = errors.New("full name could not be found")
 	ErrUpdate = errors.New("update failed")
+	ErrFileHash = errors.New("file hash could not be found")
 )
 
 const (
@@ -49,6 +54,7 @@ type Client struct {
 	Auth 		*AuthService
 	Exercise 	*ExerciseService
 	Members		*MemberService
+	Tables		*TableService
 }
 
 type service struct {
@@ -78,6 +84,7 @@ func NewClient(client *http.Client, credentials *Credentials) (*Client, error) {
 	ret.Auth = (*AuthService)(&ret.common)
 	ret.Exercise = (*ExerciseService)(&ret.common)
 	ret.Members = (*MemberService)(&ret.common)
+	ret.Tables = (*TableService)(&ret.common)
 
 	// Login using the client
 
@@ -112,6 +119,51 @@ func (c *Client) NewRequest(method string, path string, body url.Values) (*http.
 		request.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 	}
 
+	request.Host = c.Host
+	return request, nil
+}
+
+type UploadFile struct {
+	Header	    textproto.MIMEHeader
+	Content		*bytes.Buffer
+}
+
+func (c *Client) NewMultipartRequest(method string, path string, body url.Values, upload *UploadFile) (*http.Request, error) {
+
+	target, err := c.BaseURL.Parse(path)
+	if err != nil {
+		return nil, err
+	}
+
+	var buf bytes.Buffer
+	writer := multipart.NewWriter(&buf)
+
+	// Create form field for the file
+	fieldWriter, err := writer.CreatePart(upload.Header)
+	if err != nil {
+		return nil, err
+	}
+
+	// Copy file contents into request
+	if _, err = io.Copy(fieldWriter, upload.Content); err != nil {
+		return nil, err
+	}
+
+	// Copy additional parameters
+	for key, array := range body {
+		for _, value := range array {
+			_ = writer.WriteField(key, value)
+		}
+	}
+
+	writer.Close()
+
+	request, err := http.NewRequest(method, target.String(), &buf)
+	if err != nil {
+		return nil, err
+	}
+
+	request.Header.Set("Content-Type", writer.FormDataContentType())
 	request.Host = c.Host
 	return request, nil
 }

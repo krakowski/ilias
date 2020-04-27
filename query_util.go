@@ -35,5 +35,5 @@ func containsDangerAlert(doc *goquery.Document) bool {
 }
 
 func containsElement(doc *goquery.Document, selector string) bool {
-	return doc.Find(selector).Length() != 0
+	return doc.Find(selector).Length() > 0
 }
