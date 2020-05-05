@@ -4,7 +4,6 @@ import (
 	"github.com/360EntSecGroup-Skylar/excelize"
 	"github.com/PuerkitoBio/goquery"
 	"net/http"
-	"net/http/httputil"
 	"net/textproto"
 	"net/url"
 )
@@ -56,13 +55,10 @@ func (table *TableService) Import(params *ImportParams, sheet *excelize.File) er
 	}
 
 	// Execute request
-	resp, err := table.client.Do(req)
+	_, err = table.client.Do(req)
 	if err != nil {
 		return err
 	}
-
-	bytes, _ := httputil.DumpResponse(resp, true)
-	println(string(bytes))
 
 	return nil
 }
