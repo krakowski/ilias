@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	importPath string = "ilias.php?mode=1&cmd=post&cmdClass=ildclrecordlistgui&cmdNode=6k:yf:yw&baseClass=ilrepositorygui&fallbackCmd=showImportExcel"
+	importPath string = "ilias.php?mode=1&cmd=post&cmdClass=ildclrecordlistgui&cmdNode=up:ke:95&baseClass=ilrepositorygui&fallbackCmd=showImportExcel"
 )
 
 type ImportParams struct {

@@ -9,7 +9,7 @@ import (
 
 
 const (
-	gradesPath = "https://ilias.hhu.de/ilias/ilias.php?cmd=post&cmdClass=ilexercisemanagementgui&cmdNode=xn:xk:125&baseClass=ilExerciseHandlerGUI"
+	gradesPath = "https://ilias.hhu.de/ilias/ilias.php?cmd=post&cmdClass=ilexercisemanagementgui&cmdNode=at:ld:au&baseClass=ilExerciseHandlerGUI"
 )
 
 type GradesQuery struct {
