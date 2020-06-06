@@ -39,7 +39,7 @@ func (exercise *ExerciseService) UpdateGrades(params *GradesQuery, corrections [
 		values.Add("id[" + correction.Student + "]", "1")
 		values.Add("idlid[" + correction.Student + "]", "")
 		values.Add("status[" + correction.Student + "]", "passed")
-		values.Add("mark[" + correction.Student + "]", strconv.Itoa(correction.Points) + " Punkte")
+		values.Add("mark[" + correction.Student + "]", strconv.FormatFloat(correction.Points, 'f', -1, 64) + " Punkte")
 		values.Add("notice[" + correction.Student + "]", "")
 	}
 
