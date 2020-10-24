@@ -71,7 +71,7 @@ func findToken(doc *goquery.Document) (string, error) {
 }
 
 func findFullName(doc *goquery.Document) (string, error) {
-	title, exists := doc.Find("#userlog img").Eq(0).Attr("title")
+	title, exists := doc.Find("#userlog img").Eq(0).Attr("alt")
 	if !exists {
 		return "", ErrFullName
 	}
