@@ -12,8 +12,8 @@ import (
 
 
 const (
-	gradesPath = "https://ilias.hhu.de/ilias/ilias.php?cmd=post&cmdClass=ilexercisemanagementgui&cmdNode=at:ld:au&baseClass=ilExerciseHandlerGUI"
-	gradesOverviewPath = "https://ilias.hhu.de/ilias/ilias.php?cmd=showGradesOverview&cmdClass=ilexercisemanagementgui&cmdNode=at:ld:au&baseClass=ilExerciseHandlerGUI"
+	gradesPath = "https://ilias.hhu.de/ilias/ilias.php?cmd=post&cmdClass=ilexercisemanagementgui&cmdNode=b8:lt:b9&baseClass=ilExerciseHandlerGUI"
+	gradesOverviewPath = "https://ilias.hhu.de/ilias/ilias.php?cmd=showGradesOverview&cmdClass=ilexercisemanagementgui&cmdNode=b8:lt:b9&baseClass=ilExerciseHandlerGUI"
 )
 
 var (

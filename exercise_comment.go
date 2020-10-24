@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	commentPath = "ilias.php?vw=1&cmd=saveCommentForLearners&cmdClass=ilexercisemanagementgui&cmdNode=at:ld:au&baseClass=ilExerciseHandlerGUI&cmdMode=asynch"
+	commentPath = "ilias.php?vw=1&cmd=saveCommentForLearners&cmdClass=ilexercisemanagementgui&cmdNode=b8:lt:b9&baseClass=ilExerciseHandlerGUI&cmdMode=asynch"
 )
 
 type CommentParams struct {

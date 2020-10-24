@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	listPath string = "ilias.php?exc_mem_trows=800&cmd=members&cmdClass=ilexercisemanagementgui&cmdNode=at:ld:au&baseClass=ilExerciseHandlerGUI"
+	listPath string = "ilias.php?exc_mem_trows=800&cmd=members&cmdClass=ilexercisemanagementgui&cmdNode=b8:lt:b9&baseClass=ilExerciseHandlerGUI"
 )
 
 var (
