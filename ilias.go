@@ -26,7 +26,7 @@ var (
 )
 
 const (
-	baseUrl        string = "https://ilias.hhu.de/ilias/"
+	baseUrl        string = "https://ilias.hhu.de/"
 	defaultHost	   string = "ilias.hhu.de"
 )
 
@@ -76,7 +76,7 @@ func NewClient(client *http.Client, credentials *Credentials) (*Client, error) {
 	client.Jar = jar
 
 
-
+	
 	// Parse the base url and create the http client
 	base, _ := url.Parse(baseUrl)
 	ret := &Client{ BaseURL: base, Host: defaultHost, client: client }
@@ -116,7 +116,7 @@ func (c *Client) NewRequest(method string, path string, body url.Values) (*http.
 	}
 
 	if body != nil {
-		request.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+		request.Header.Set("content-type", "application/x-www-form-urlencoded")
 	}
 
 	request.Host = c.Host
