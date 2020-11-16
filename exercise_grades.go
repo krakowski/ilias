@@ -12,8 +12,8 @@ import (
 
 
 const (
-	gradesPath = "https://ilias.hhu.de/ilias/ilias.php?cmd=post&cmdClass=ilexercisemanagementgui&cmdNode=b8:lt:b9&baseClass=ilExerciseHandlerGUI"
-	gradesOverviewPath = "https://ilias.hhu.de/ilias/ilias.php?cmd=showGradesOverview&cmdClass=ilexercisemanagementgui&cmdNode=b8:lt:b9&baseClass=ilExerciseHandlerGUI"
+	gradesPath = "ilias.php?vw=1&cmd=post&cmdClass=ilexercisemanagementgui&cmdNode=v6:lt:b9&baseClass=ilRepositoryGUI&fallbackCmd=saveStatusAll"
+	gradesOverviewPath = "ilias.php?cmd=showGradesOverview&cmdClass=ilexercisemanagementgui&cmdNode=v6:lt:b9&baseClass=ilRepositoryGUI"
 )
 
 var (
@@ -65,7 +65,6 @@ func (exercise *ExerciseService) UpdateGrades(params *GradesUpdateQuery, correct
 	if err != nil {
 		return err
 	}
-
 
 	// Magic voodo parameters
 	values := url.Values{
