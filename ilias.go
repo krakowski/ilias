@@ -55,6 +55,7 @@ type Client struct {
 	Exercise 	*ExerciseService
 	Members		*MemberService
 	Tables		*TableService
+	Course		*CourseService
 }
 
 type service struct {
@@ -85,6 +86,7 @@ func NewClient(client *http.Client, credentials *Credentials) (*Client, error) {
 	ret.Exercise = (*ExerciseService)(&ret.common)
 	ret.Members = (*MemberService)(&ret.common)
 	ret.Tables = (*TableService)(&ret.common)
+	ret.Course = (*CourseService)(&ret.common)
 
 	// Login using the client
 
@@ -138,15 +140,18 @@ func (c *Client) NewMultipartRequest(method string, path string, body url.Values
 	var buf bytes.Buffer
 	writer := multipart.NewWriter(&buf)
 
-	// Create form field for the file
-	fieldWriter, err := writer.CreatePart(upload.Header)
-	if err != nil {
-		return nil, err
-	}
+	if (upload != nil) {
 
-	// Copy file contents into request
-	if _, err = io.Copy(fieldWriter, upload.Content); err != nil {
-		return nil, err
+		// Create form field for the file
+		fieldWriter, err := writer.CreatePart(upload.Header)
+		if err != nil {
+			return nil, err
+		}
+
+		// Copy file contents into request
+		if _, err = io.Copy(fieldWriter, upload.Content); err != nil {
+			return nil, err
+		}
 	}
 
 	// Copy additional parameters
