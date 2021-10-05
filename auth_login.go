@@ -1,14 +1,15 @@
 package ilias
 
 import (
-	"github.com/PuerkitoBio/goquery"
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/PuerkitoBio/goquery"
 )
 
 const (
-	loginPath string = "ilias.php?lang=de&client_id=UniRZ&cmd=post&cmdClass=ilstartupgui&cmdNode=yn&baseClass=ilStartUpGUI&rtoken="
+	loginPath string = "ilias.php?lang=de&client_id=UniRZ&cmd=post&cmdClass=ilstartupgui&cmdNode=yp&baseClass=ilStartUpGUI&rtoken="
 )
 
 func (auth *AuthService) Login(username string, password string) (*User, error) {

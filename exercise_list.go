@@ -1,14 +1,15 @@
 package ilias
 
 import (
-	"github.com/PuerkitoBio/goquery"
 	"log"
 	"net/http"
 	"strings"
+
+	"github.com/PuerkitoBio/goquery"
 )
 
 const (
-	listPath string = "ilias.php?exc_mem_trows=800&cmd=members&cmdClass=ilexercisemanagementgui&cmdNode=b8:lv:b9&baseClass=ilExerciseHandlerGUI"
+	listPath string = "ilias.php?exc_mem_trows=800&cmd=members&cmdClass=ilexercisemanagementgui&cmdNode=ba:lx:bb&baseClass=ilExerciseHandlerGUI"
 )
 
 var (

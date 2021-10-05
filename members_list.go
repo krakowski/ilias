@@ -1,13 +1,14 @@
 package ilias
 
 import (
-	"github.com/PuerkitoBio/goquery"
 	"net/http"
 	"strings"
+
+	"github.com/PuerkitoBio/goquery"
 )
 
 const (
-	memberListPath string = "ilias.php?cmdClass=ilcoursemembershipgui&cmdNode=va:kq:8k&baseClass=ilrepositorygui"
+	memberListPath string = "ilias.php?cmdClass=ilcoursemembershipgui&cmdNode=vc:ks:8k&baseClass=ilrepositorygui"
 )
 
 type MemberParams struct {

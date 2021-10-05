@@ -12,8 +12,8 @@ import (
 
 
 const (
-	gradesPath = "ilias.php?vw=1&cmd=post&cmdClass=ilexercisemanagementgui&cmdNode=b8:lv:b9&baseClass=ilExerciseHandlerGUI&fallbackCmd=saveStatusAll"
-	gradesOverviewPath = "ilias.php?cmd=showGradesOverview&cmdClass=ilexercisemanagementgui&cmdNode=b8:lv:b9&baseClass=ilExerciseHandlerGUI"
+	gradesPath = "ilias.php?vw=1&cmd=post&cmdClass=ilexercisemanagementgui&cmdNode=ba:lx:bb&baseClass=ilExerciseHandlerGUI&fallbackCmd=saveStatusAll"
+	gradesOverviewPath = "ilias.php?cmd=showGradesOverview&cmdClass=ilexercisemanagementgui&cmdNode=ba:lx:bb&baseClass=ilExerciseHandlerGUI"
 )
 
 var (
