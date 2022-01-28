@@ -1,9 +1,10 @@
 package ilias
 
 import (
-	"github.com/PuerkitoBio/goquery"
 	"net/url"
 	"reflect"
+
+	"github.com/PuerkitoBio/goquery"
 )
 
 func addQueryParams(path string, params interface{}) (string, error) {

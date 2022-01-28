@@ -3,13 +3,12 @@ package ilias
 import (
 	"net/http"
 	"net/url"
-	"strings"
 
 	"github.com/PuerkitoBio/goquery"
 )
 
 const (
-	loginPath string = "ilias.php?lang=de&client_id=UniRZ&cmd=post&cmdClass=ilstartupgui&cmdNode=yp&baseClass=ilStartUpGUI&rtoken="
+	loginPath string = "ilias.php?lang=de&client_id=UniRZ&cmd=post&cmdClass=ilstartupgui&cmdNode=10y&baseClass=ilStartUpGUI&rtoken="
 )
 
 func (auth *AuthService) Login(username string, password string) (*User, error) {
@@ -43,16 +42,8 @@ func (auth *AuthService) Login(username string, password string) (*User, error) 
 		return nil, err
 	}
 
-	fullName, err := findFullName(doc)
-	if err != nil {
-		return nil, err
-	}
-
-	split := strings.Split(fullName, " ")
 	return &User{
 		Username: username,
-		Firstname: strings.Join(split[:len(split) - 1], " "),
-		Lastname: split[len(split) - 1],
 		Token:    token,
 	}, nil
 }

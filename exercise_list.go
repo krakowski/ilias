@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	listPath string = "ilias.php?exc_mem_trows=800&cmd=members&cmdClass=ilexercisemanagementgui&cmdNode=ba:lx:bb&baseClass=ilExerciseHandlerGUI"
+	listPath string = "ilias.php?exc_mem_trows=800&cmd=members&cmdClass=ilexercisemanagementgui&cmdNode=c4:ns:c5&baseClass=ilExerciseHandlerGUI"
 )
 
 var (

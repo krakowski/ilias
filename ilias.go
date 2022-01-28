@@ -3,7 +3,6 @@ package ilias
 import (
 	"bytes"
 	"errors"
-	"github.com/gorilla/schema"
 	"io"
 	"log"
 	"mime/multipart"
@@ -12,6 +11,8 @@ import (
 	"net/textproto"
 	"net/url"
 	"strings"
+
+	"github.com/gorilla/schema"
 )
 
 var (
@@ -54,7 +55,6 @@ type Client struct {
 	Auth 		*AuthService
 	Exercise 	*ExerciseService
 	Members		*MemberService
-	Tables		*TableService
 }
 
 type service struct {
@@ -84,7 +84,6 @@ func NewClient(client *http.Client, credentials *Credentials) (*Client, error) {
 	ret.Auth = (*AuthService)(&ret.common)
 	ret.Exercise = (*ExerciseService)(&ret.common)
 	ret.Members = (*MemberService)(&ret.common)
-	ret.Tables = (*TableService)(&ret.common)
 
 	// Login using the client
 
