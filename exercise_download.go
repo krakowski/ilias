@@ -6,7 +6,7 @@ import (
 )
 
 const (
-	downloadPath string = "ilias.php?vw=1&cmd=downloadReturned&cmdClass=ilexsubmissionfilegui&cmdNode=c4:ny:c5:cj&baseClass=ilExerciseHandlerGUI"
+	downloadPath string = "ilias.php?vw=1&cmd=downloadReturned&cmdClass=ilexsubmissionfilegui&cmdNode=c4:nz:c5:cj&baseClass=ilExerciseHandlerGUI"
 )
 
 type Submission struct {
